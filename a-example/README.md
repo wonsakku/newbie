@@ -204,7 +204,7 @@ ___
 5. 게시글 상세보기 아래에 댓글(comment) 추가하기
 6. 로그인 
     * DB에서 사용자 ID 조회 후 해당 아이디가 있으면 password 비교
-      * password가 일치하면  사용자 ID를 session에 넣는다.
+      * password가 일치하면  사용자의 sequence를 session에 넣는다.
       * password가 일치하지 않으면 예외를 던진다.
     * DB에서 사용자 ID가 없으면 예외를 던진다.
 7. 접근 제한(interceptor 사용)
