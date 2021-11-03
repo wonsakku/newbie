@@ -1,0 +1,42 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mybatisexample.mapper.TestMapper">
+
+	<resultMap id="test01" type="com.example.mybatisexample.dto.ResponseBoardDto">
+		<id property="boardSequenceNo" column="board_sequence_no" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+<!-- 		<collection></collection> -->
+	    <collection property="commentList" ofType="com.example.mybatisexample.dto.ResponseCommentDto">
+	         <id property="commentSequenceNo" column="comment_sequence_no" />
+	         <result property="comment" column="comment" />
+	         <result property="grade" column="grade" />
+    </collection>
+	</resultMap>
+
+	<select id="test01" resultMap="test01">
+		SELECT b.sequence_no AS board_sequence_no, b.title, b.content,  c.sequence_no AS comment_sequence_no, c.comment, c.grade FROM test_mybatis.board b
+		LEFT JOIN test_mybatis.comment c
+		ON b.sequence_no = c.board_sequence_no
+		ORDER BY board_sequence_no
+	</select>
+
+	<select id="gradeSort" resultType="com.example.mybatisexample.dto.BoardDto">
+		SELECT b.sequence_no AS board_sequence_no, 
+			   b.title, b.content, 
+			   c.average_grade AS "averageGrade", 
+			   c.comment_count AS "commentCount" 
+		FROM test_mybatis.board b
+		LEFT JOIN (
+			SELECT board_sequence_no, ROUND(AVG(grade), 3) AS average_grade, COUNT(grade) AS comment_count FROM test_mybatis.comment
+			GROUP BY board_sequence_no
+		) c
+		ON b.sequence_no = c.board_sequence_no
+		WHERE average_grade IS NOT NULL
+		ORDER BY average_grade DESC
+		limit 10
+	</select>
+
+</mapper>

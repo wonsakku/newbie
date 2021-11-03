@@ -8,6 +8,7 @@
   
   <modules>
   	<module>a-example</module>
+  	<module>mybatis-example</module>
   	<module>email-authentication-test</module>
   	<module>simple-session-login</module>
   </modules>
