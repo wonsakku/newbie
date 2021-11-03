@@ -1,0 +1,24 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.mapper.AccountMapper">
+
+	<insert id="join" parameterType="AccountVO">
+		INSERT INTO account(account_id, email, account_password, authentication_token, created_at, modify_at)
+		VALUES(#{accountId}, #{email}, #{accountPassword}, #{authenticationToken}, now(), now())
+	</insert>
+
+	<select id="findAllAccounts" resultType="ResponseAccountDto">
+		SELECT sequence_no, account_id, email, approved, created_at
+		FROM account
+		ORDER BY created_at
+	</select>
+
+	<select id="findAccountByAccountId" resultType="ResponseAccountDto" parameterType="string">
+		SELECT sequence_no, account_id, approved, created_at
+		FROM account
+		WHERE account_id = #{account_id}
+	</select>
+
+</mapper>
