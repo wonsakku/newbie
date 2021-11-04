@@ -41,8 +41,8 @@
 # mkdir postgresql
 # cd postgresql
 # vi docker-compose.yml
-
-
+```
+```
 version: "2"
 services:
     db:
