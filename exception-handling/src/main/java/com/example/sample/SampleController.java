@@ -74,7 +74,7 @@ public class SampleController {
 	}
 	
 	@GetMapping("/exception-test/try-catch-v3/{code}")
-	public String exceptionHandler4(@PathVariable int code) {
+	public String exceptionHandler5(@PathVariable int code) {
 		
 		try {
 			if(code == 1) {
