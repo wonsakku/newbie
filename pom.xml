@@ -11,5 +11,6 @@
   	<module>mybatis-example</module>
   	<module>email-authentication-test</module>
   	<module>simple-session-login</module>
+  	<module>exception-handling</module>
   </modules>
 </project>
