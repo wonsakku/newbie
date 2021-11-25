@@ -23,7 +23,7 @@ public class SampleController {
 			throw new IllegalArgumentException("code = 4 -> IllegalArgumentException");
 		}
 		
-		return "Response Success";
+		return "process successfully completed";
 	}
 
 	@GetMapping("/exception-test/try-catch/{code}")
@@ -46,7 +46,7 @@ public class SampleController {
 			e.printStackTrace();
 		}
 		
-		return "process successfully completed";
+		return "process successfully completed- try-catch - exceptionHandling on Exception";
 	}
 	
 	
@@ -66,34 +66,11 @@ public class SampleController {
 			if(code == 4) {
 				throw new IllegalArgumentException("code = 4 -> IllegalArgumentException");
 			}
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return "process successfully completed - try-catch-v2";
-	}
-	
-	@GetMapping("/exception-test/try-catch-v3/{code}")
-	public String exceptionHandler4(@PathVariable int code) {
-		
-		try {
-			if(code == 1) {
-				throw new SampleOneException();
-			}
-			if(code == 2) {
-				throw new SampleTwoException();
-			}
-			if(code == 3) {
-				throw new RuntimeException("code = 3 -> RuntimeException");
-			}
-			if(code == 4) {
-				throw new IllegalArgumentException("code = 4 -> IllegalArgumentException");
-			}
 		}catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		
-		return "process successfully completed - try-catch-v3 - exceptionHandling on IllegalArgumentException";
+		return "process successfully completed - try-catch-v2 - exceptionHandling on IllegalArgumentException";
 	}
 }
 
