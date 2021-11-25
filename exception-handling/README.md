@@ -14,6 +14,6 @@ ___
 
 <br>
 
-> #### exceptionHandler1() 을 기준으로 exceptionHandler2(), exceptionHandler3(), exceptionHandler4() 가 어떻게 작동하는지를 비교해보면 좋을 것 같습니다.
+> #### exceptionHandler1() 을 기준으로 exceptionHandler2(), exceptionHandler3() 가 어떻게 작동하는지를 비교해보면 좋을 것 같습니다.
 
-> ## ***"여기서 말하고 싶은 것은 예외처리를 하기 위해 함부로 try-catch를 쓰지 말자" 입니다.ㅎㅎ***
+> ## ***"여기서 말하고 싶은 것은 예외처리를 하기 위해 함부로 try-catch를 쓰지 말자" 입니다***
