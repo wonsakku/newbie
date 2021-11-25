@@ -12,5 +12,6 @@
   	<module>email-authentication-test</module>
   	<module>simple-session-login</module>
   	<module>exception-handling</module>
+  	<module>java-baik</module>
   </modules>
 </project>
